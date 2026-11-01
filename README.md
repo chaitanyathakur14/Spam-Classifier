@@ -1,4 +1,4 @@
-# Spam Classifier
+# Spam Classifier for MLOps Experiment 8
 This is a SMS/Email Spam classifier that identifies if a given text message is a potential advert, fraud or scam and seperate it from actual text messages.
 ## Dataset Used:
 The dataset used in this project was fetched from kaggle named:
