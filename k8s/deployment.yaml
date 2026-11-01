@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spam-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: spam-streamlit
+  template:
+    metadata:
+      labels:
+        app: spam-streamlit
+    spec:
+      containers:
+        - name: spam-streamlit
+          image: spam-streamlit:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8501
+            - containerPort: 8000
+          readinessProbe:
+            httpGet:
+              path: /_stcore/health
+              port: 8501
+            initialDelaySeconds: 10
+            periodSeconds: 5
